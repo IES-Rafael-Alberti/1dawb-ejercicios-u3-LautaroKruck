@@ -1,18 +1,18 @@
 """
 Escribir un programa que almacene las asignaturas de un curso (por ejemplo Matemáticas, Física, Química, Historia y Lengua) en una lista y la muestre por pantalla el mensaje Yo estudio <asignatura>, donde <asignatura> sobre cada una de las asignaturas de la lista.
 """
+from src.ej3_1_1 import pedir_asig
 
-def pedir_asig():
-
-    asignaturas = input("Ingresa una serie de asignaturas separados por espacio: ")
-    lista_asig = asignaturas.split()
-    return lista_asig
-
+def dar_lista(lista_asig):
+    serie = ""
+    for asig in lista_asig:
+        serie += f"Yo estudio {asig} \n"
+    return serie
 
 def main():
     lista_asig = pedir_asig()
-    for asig in lista_asig:
-        print(f"Yo estudio {asig} \n")
+    serie = dar_lista(lista_asig)
+    print(serie)
 
 
 if __name__ == "__main__":
