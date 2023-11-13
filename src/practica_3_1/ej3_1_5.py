@@ -2,24 +2,19 @@
 Escribir un programa que almacene en una lista los números del 1 al 10 y los muestre por pantalla en orden inverso separados por comas.
 """
 
-def pedir_num():
+def hacer_lista():
     
-    numeros = input("Ingresa los números ganadores de la lotería primitiva separados por espacio: ")
-    lista_num = [float(num) for num in numeros.split()]
-    lista_num.reverse()
+    lista = [1 ,2 ,3 ,4 ,5 ,6 ,7 ,8 ,9 ,10 ]
     
-    return lista_num
+    return lista
 
-def dar_lista(lista_num):
-    serie = ""
-    for num in lista_num:
-        serie += f"Yo estudio {num} \n"
-    return serie
+def lista_alreves(lista):
+    lista_final = reverse(lista)
+    return lista_final
 
 def main():
-    lista_num = pedir_num()
-    serie = dar_lista(lista_num)
-    print(serie)
+    lista = hacer_lista()   
+    print(lista_alreves(lista))
 
 
 if __name__ == "__main__":

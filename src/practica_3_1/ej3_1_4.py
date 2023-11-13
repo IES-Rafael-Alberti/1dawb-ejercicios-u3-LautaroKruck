@@ -17,7 +17,9 @@ def guardar_num():
 def dar_lista(lista_num):
     serie = ""
     print("Los números ganadores de la lotería primitiva son: \n")
+    cont = 1
     for num in lista_num:
+
         serie += f"\n {num:.0f} \n"
     return serie
 
