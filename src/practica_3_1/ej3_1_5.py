@@ -1,31 +1,24 @@
 """
-Escribir un programa que pregunte al usuario los números ganadores de la lotería primitiva, los almacene en una lista y los muestre por pantalla ordenados de menor a mayor.
+Escribir un programa que almacene en una lista los números del 1 al 10 y los muestre por pantalla en orden inverso separados por comas.
 """
 
 def pedir_num():
     
     numeros = input("Ingresa los números ganadores de la lotería primitiva separados por espacio: ")
-    
     lista_num = [float(num) for num in numeros.split()]
-    lista_num.sort()
+    lista_num.reverse()
     
     return lista_num
 
-def guardar_num():
-    print
-
 def dar_lista(lista_num):
     serie = ""
-    print("Los números ganadores de la lotería primitiva son: \n")
     for num in lista_num:
-        serie += f"\n {num:.0f} \n"
+        serie += f"Yo estudio {num} \n"
     return serie
 
 def main():
-    print("Introduzca los números de la lotería: \n")
     lista_num = pedir_num()
     serie = dar_lista(lista_num)
-
     print(serie)
 
 
