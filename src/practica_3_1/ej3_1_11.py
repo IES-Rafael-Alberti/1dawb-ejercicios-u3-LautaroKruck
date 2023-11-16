@@ -1,7 +1,7 @@
 """
 Escribir un programa que almacene los vectores (1,2,3) y (-1,0,2) en dos listas y muestre por pantalla su producto escalar.
 """
-
+from src.borrar_consola import borrar_consola
 
 def prod_vectorial(v1 : tuple , v2 : tuple) -> tuple:
     l3 =[]
@@ -32,6 +32,8 @@ def prod_vectorial(v1 : tuple , v2 : tuple) -> tuple:
 
 
 def main():
+    borrar_consola()
+
     v1 = (-1 , 4 , 2)
     v2 = (2 , 2 , 2)
 

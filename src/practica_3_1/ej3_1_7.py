@@ -8,24 +8,21 @@ def guardar_abecedario():
     return list(map(chr, range(97, 123)))
 
 def eliminar_letras(lista):
-    cont = 0
-    max = len(lista) - 1 
-    while cont <= max:
-        if cont % 3 == 0:
-            del lista[cont]
-            max -= 1
-            cont +=1
-
+    i = len(lista) - 1
+    while i >= 0:
+        if (i + 1) % 3 == 0:
+            del lista[i]
+        i -= 1
     return lista
 
-
 def main():
-    lista = guardar_abecedario()
-    eliminar_letras(lista)
-    print(lista)
-    
     borrar_consola()
 
+    lista = guardar_abecedario()
+    lista_resultante = eliminar_letras(lista)
+    print(lista_resultante)
+    
+    
 
 if __name__ == "__main__":
     main()
