@@ -49,8 +49,8 @@ def main():
         desviacion_tipica = calcular_desviacion_tipica(media, lista)
 
         if desviacion_tipica is not None:
-            print(f"La media de los números ingresados es: {media:.3f}")
-            print(f"La desviación típica de los números ingresados es: {desviacion_tipica:.3f}")
+            print(f"La media de los números ingresados es: {media:.2f}")
+            print(f"La desviación típica de los números ingresados es: {desviacion_tipica:.2f}")
         else:
             print("No se pudo calcular la desviación típica debido a una lista vacía.")
 
