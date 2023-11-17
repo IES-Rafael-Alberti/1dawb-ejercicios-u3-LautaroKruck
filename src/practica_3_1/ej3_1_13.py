@@ -19,7 +19,7 @@ def pedir_numeros():
 def calcular_media(lista):
     try:
         if not lista:
-            return None  # Devolvemos None en lugar de lanzar la excepción
+            return None
 
         media = sum(lista) / len(lista)
         return media
