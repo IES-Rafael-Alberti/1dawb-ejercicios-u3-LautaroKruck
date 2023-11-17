@@ -30,8 +30,9 @@ def calcular_media(lista):
 
 def calcular_desviacion_tipica(media, lista):
     try:
-        suma_cuadrados_diferencias = sum((x - media) ** 2 for x in lista)
-        desviacion_tipica = (suma_cuadrados_diferencias / len(lista)) ** 0.5
+        suma_cuadrados = sum((i - media) ** 2 for i in lista)
+
+        desviacion_tipica = (suma_cuadrados / len(lista)) ** 0.5
         return desviacion_tipica
 
     except ZeroDivisionError as e:

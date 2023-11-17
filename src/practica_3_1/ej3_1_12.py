@@ -4,17 +4,16 @@ Escribir un programa que almacene las matrices A=(123456) y B=(-100111) en una l
 
 from src.borrar_consola import borrar_consola
 
-def multiplicar_matrices(matriz_a, matriz_b):
-    if len(matriz_a[0]) != len(matriz_b):
-        raise ValueError("No se pueden multiplicar las matrices. El número de columnas de A debe ser igual al número de filas de B.")
-
-    resultado = [[0 for _ in range(len(matriz_b[0]))] for _ in range(len(matriz_a))]
+def multiplicar_matrices(m_a, m_b):
+    resultado = []
     
-    for i in range(len(matriz_a)):
-        for j in range(len(matriz_b[0])):
-            for k in range(len(matriz_b)):
-                resultado[i][j] += matriz_a[i][k] * matriz_b[k][j]
-
+    for fila in range(3):
+        resultado[fila].append([])
+        for columna in range(2):
+            resultado[columna].append(
+                m_a[fila][columna] * 
+                m_b[fila][columna]
+            )
     return resultado
 
 def mostrar_matriz(matriz):
@@ -25,19 +24,19 @@ def mostrar_matriz(matriz):
 def main():
     borrar_consola()
 
-    matriz_a = [[1, 2, 3], [4, 5, 6]]
-    matriz_b = [[-1, 0, 0], [1, 1, 1]]
+    m_a = ([1, 2], [3, 4], [5, 6])
+    m_b = ([-1, 0], [0, 1], [1, 1])
 
-    producto = multiplicar_matrices(matriz_a, matriz_b)
+    resultado = multiplicar_matrices(m_a, m_b)
 
     print("Matriz A:")
-    mostrar_matriz(matriz_a)
+    mostrar_matriz(m_a)
 
     print("\nMatriz B:")
-    mostrar_matriz(matriz_b)
+    mostrar_matriz(m_b)
 
     print("\nProducto de matrices:")
-    mostrar_matriz(producto)
+    mostrar_matriz(resultado)
 
 
 if __name__ == "__main__":
