@@ -19,7 +19,7 @@ def pedir_numeros():
 def calcular_media(lista):
     try:
         if not lista:
-            return None  # Devolvemos None en lugar de lanzar la excepción
+            return None
 
         media = sum(lista) / len(lista)
         return media
@@ -30,8 +30,9 @@ def calcular_media(lista):
 
 def calcular_desviacion_tipica(media, lista):
     try:
-        suma_cuadrados_diferencias = sum((x - media) ** 2 for x in lista)
-        desviacion_tipica = (suma_cuadrados_diferencias / len(lista)) ** 0.5
+        suma_cuadrados = sum((i - media) ** 2 for i in lista)
+
+        desviacion_tipica = (suma_cuadrados / len(lista)) ** 0.5
         return desviacion_tipica
 
     except ZeroDivisionError as e:
@@ -48,8 +49,8 @@ def main():
         desviacion_tipica = calcular_desviacion_tipica(media, lista)
 
         if desviacion_tipica is not None:
-            print(f"La media de los números ingresados es: {media:.3f}")
-            print(f"La desviación típica de los números ingresados es: {desviacion_tipica:.3f}")
+            print(f"La media de los números ingresados es: {media:.2f}")
+            print(f"La desviación típica de los números ingresados es: {desviacion_tipica:.2f}")
         else:
             print("No se pudo calcular la desviación típica debido a una lista vacía.")
 

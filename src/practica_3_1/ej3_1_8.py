@@ -4,9 +4,9 @@ Escribir un programa que pida al usuario una palabra y muestre por pantalla si e
 from src.borrar_consola import borrar_consola
 
 def pedir_palabra():
-    return input("Ingrese una palabra: ")
+    return input("Introduce una palabra: ")
 
-def es_palindromo(palabra):
+def palindromo(palabra):
     palabra = palabra.replace(" ", "").lower()
     return palabra == palabra[::-1]
 
@@ -15,7 +15,7 @@ def main():
 
     palabra = pedir_palabra()
     
-    if es_palindromo(palabra):
+    if palindromo(palabra):
         print(f"{palabra} es un palíndromo.")
     else:
         print(f"{palabra} no es un palíndromo.")
