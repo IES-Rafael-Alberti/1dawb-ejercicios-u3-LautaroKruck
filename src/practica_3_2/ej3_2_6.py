@@ -10,7 +10,7 @@ def pedir_info():
     return info
 
 def añadir_info(d, tipo_info):
-    dato = input(f"Introduce {tipo_info}: ").title()
+    dato = input(f"Introduce tu {tipo_info}: ").title()
     d[tipo_info] = dato
     return d
 
@@ -23,7 +23,7 @@ def main():
     while info == "Y":
         tipo_info = input("Introduce el tipo de información que va a introducir (por ejemplo, nombre, edad, sexo, teléfono, correo electrónico, etc.): \n").title()
         diccionario_persona = añadir_info(diccionario_persona, tipo_info)
-        
+
         print(diccionario_persona)
 
         info = pedir_info()
