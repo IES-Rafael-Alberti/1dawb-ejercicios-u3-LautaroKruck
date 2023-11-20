@@ -14,11 +14,12 @@ def pedir_fruta():
     return fruta.title()
 
 def pedir_kilos():
-    while True:
-        kilos_input = input("Introduce el número de kilos: ")
+    kilos = False
+    while not kilos:
+        kilos = input("Introduce el número de kilos: ")
         try:
-            kilos = float(kilos_input)
-            if kilos >= 0.1:
+            kilos = float(kilos)
+            if kilos > 0:
                 return kilos
             else:
                 print("Por favor, introduce un número no negativo.")

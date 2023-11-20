@@ -14,12 +14,12 @@ def pedir_fecha():
         if 1 <= dia <= 30: 
             return dia
         else:
-            print("**Error** Número fuera de rango.")
+            print("**Error** Día fuera de rango.")
         
         if 1 <= mes <= 12:
             return mes
         else:
-            print("**Error** Número fuera de rango.")
+            print("**Error** Mes fuera de rango.")
 
     except ValueError:
         print("**Error** Ingresa un número válido.")

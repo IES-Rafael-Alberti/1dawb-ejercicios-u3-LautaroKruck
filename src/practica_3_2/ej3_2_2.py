@@ -26,7 +26,7 @@ def pedir_telefono(d):
     telefono_valido = False
     while not telefono_valido:
         tel = input("Introduce tu número de teléfono: ")
-        if tel.isdigit() and len(tel) == 10: 
+        if tel.isnumeric() and len(tel) == 10: 
             d["teléfono"] = tel
             telefono_valido = True
         else:
