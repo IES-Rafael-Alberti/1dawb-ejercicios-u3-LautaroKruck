@@ -4,34 +4,30 @@ Escribir un programa que cree un diccionario vacío y lo vaya llenado con inform
 from src.borrar_consola import borrar_consola
 
 def pedir_info():
-
     info = ""
     while info != "Y" and info != "N":
-        info = input("Desea introducir información (Y/N): ").upper()
-
+        info = input("¿Desea introducir información? (Y/N): ").upper()
     return info
 
-def añadir_info(d, msj1, msj2):
-    
-    d.setdefault(input(msj1).title(), input(msj2).title())
-
+def añadir_info(d, tipo_info):
+    dato = input(f"Introduce {tipo_info}: ").title()
+    d[tipo_info] = dato
     return d
 
 def main():
     borrar_consola()
-    d = dict()
-
-    msj1 = "Introduzca el tipo de informacion que va a introducir (por ejemplo nombre, edad, sexo, teléfono, correo electrónico, etc.): \n"
-    msj2 = "Introduzca el dato: \n"
+    diccionario_persona = {}
 
     info = pedir_info()
 
-    while  info == "Y" :
-        añadir_info(d, msj1, msj2)
-        print(d)
+    while info == "Y":
+        tipo_info = input("Introduce el tipo de información que va a introducir (por ejemplo, nombre, edad, sexo, teléfono, correo electrónico, etc.): \n").title()
+        diccionario_persona = añadir_info(diccionario_persona, tipo_info)
+        
+        print(diccionario_persona)
 
         info = pedir_info()
 
-
 if __name__ == "__main__":
     main()
+
