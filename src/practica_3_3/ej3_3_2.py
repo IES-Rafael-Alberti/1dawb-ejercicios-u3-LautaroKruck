@@ -8,51 +8,37 @@ Mostrar si todos los nombres de primaria están incluidos en secundaria.
 """
 from src.borrar_consola import borrar_consola
 
-def pedir_alumnos_primaria(msj:str) -> list:
-    alumnos_primaria = set()
+def pedir_alumnos_nivel(msj: str) -> set:
+    alumnos_nivel = set()
     alumno = ""
 
-    while alumno != "x" :
-        alumno = input("¿Desea introducir más nombres? (Para salir introduzca x): ").lower()
-        alumnos_primaria.append(alumno)
-    return alumnos_primaria
+    while alumno.lower() != "x":
+        alumno = input(msj).capitalize()
+        if alumno.lower() != "x":
+            alumnos_nivel.add(alumno)
 
-def pedir_alumnos_secundaria(msj:str) -> list:
-    alumnos_secundaria = set()
-    alumno = ""
+    return alumnos_nivel
 
-    while alumno != "x" :
-        alumno = input("¿Desea introducir más nombres? (Para salir introduzca x): ").lower()
-        alumnos_secundaria.append(alumno)
-    return alumnos_secundaria
-
-def mostrar_alumnos(ciclo: str, alumnos: set) -> str:
+def mostrar_alumnos(titulo: str, alumnos: set) -> None:
+    print(titulo)
+    alumnos_str = " - ".join(alumnos)
+    print(alumnos_str)
     print()
 
 def main():
     borrar_consola()
 
-    alumnos_primaria = pedir_alumnos_primaria()
+    alumnos_primaria = pedir_alumnos_nivel("Introduce el nombre de un alumno de primaria (Para salir introduce 'x'): ")
 
-    alumnos_secundaria = pedir_alumnos_secundaria()
+    alumnos_secundaria = pedir_alumnos_nivel("Introduce el nombre de un alumno de secundaria (Para salir introduce 'x'): ")
 
-    mostrar_alumnos("Nombres no repetidos => ", set(alumnos_primaria) | set (alumnos_secundaria))
+    mostrar_alumnos("Nombres no repetidos => ", alumnos_primaria | alumnos_secundaria)
 
-    info = pedir_info()
+    mostrar_alumnos("Nombres que se repiten => ", alumnos_primaria & alumnos_secundaria)
 
-    while info == "Y":
-        artículo = input("Introduce el artículo: \n").title()
-        lista_de_primaria = añadir_articulo(lista_de_compra, artículo)
-        lista_de_secundaria = añadir_articulo(lista_de_compra, artículo)
+    mostrar_alumnos("Nombres de primaria no repetidos en secundaria => ", alumnos_primaria - alumnos_secundaria)
 
-        print(lista_de_compra)
-
-        info = pedir_info()
-
-    calcular_total(lista_de_compra)
-    print(lista_de_compra)
-
-
+    print("¿Todos los nombres de primaria están incluidos en secundaria? ", alumnos_primaria.issubset(alumnos_secundaria))
 
 if __name__ == "__main__":
     main()
