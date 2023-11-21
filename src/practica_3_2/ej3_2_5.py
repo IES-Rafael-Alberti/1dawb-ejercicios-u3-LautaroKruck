@@ -3,19 +3,26 @@ Escribir un programa que almacene el diccionario con los créditos de las asigna
 """
 from src.borrar_consola import borrar_consola
 
+def cred_asigs(creditos_asigs):
+    total_creditos = 0
+    for asignatura, creditos in creditos_asigs.items():
+        total_creditos += creditos
+        print(f"{asignatura} tiene {creditos} créditos.")
+    
+    return total_creditos
+
+def mostrar_total(total_creditos):
+    print(f"El número total de créditos del curso es {total_creditos}.")
+
 def main():
     borrar_consola()
 
-    cred_asigs = {'Matemáticas': 6, 'Física': 4, 'Química': 5}
+    creditos_asigs = {'Matemáticas': 6, 'Física': 4, 'Química': 5}
 
     print()
-    total_cred = 0
-    for asig , cred in cred_asigs.items():
+    total_creditos = cred_asigs(creditos_asigs)
 
-        total_cred += cred
-        print (f"{asig} tiene {cred} créditos.")
-
-    print(f"El número totl de creditos del curso es {total_cred}.")
+    mostrar_total(total_creditos)
 
 if __name__ == "__main__":
     main()
