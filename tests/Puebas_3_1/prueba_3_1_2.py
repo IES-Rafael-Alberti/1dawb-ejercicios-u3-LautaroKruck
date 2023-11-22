@@ -1,5 +1,4 @@
 import pytest
-from src.borrar_consola import borrar_consola
 from src.practica_3_1.ej3_1_2 import dar_lista
 
 def test_dar_lista():
