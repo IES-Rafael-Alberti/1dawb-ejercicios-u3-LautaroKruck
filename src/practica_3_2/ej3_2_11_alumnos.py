@@ -16,9 +16,6 @@ def main():
     # Dividir la cadena de texto en líneas
     lineas = directorio_texto.split('\n')
 
-    # Obtener los nombres de los campos desde la primera línea
-    nombres_campos = lineas[0].split(';')
-
     # Inicializar el diccionario
     directorio_clientes = {}
 
@@ -29,18 +26,22 @@ def main():
             # Dividir la línea en valores usando el punto y coma como separador
             valores = linea.split(';')
 
-            #TODO: Crear un diccionario con la información del cliente, 
-            # pero hacerlo de otra forma sin usar la clase zip()
-            # Podéis depurar el programa para ver qué hace y así poder solucionarlo...
-            cliente_info = {campo: valor for campo, valor in zip(nombres_campos, valores)}
-            "???"
+            # Obtener el nif del cliente (primer valor en la línea)
+            nif = valores[0]
 
-            #TODO: Añadir el diccionario del cliente al diccionario directorio_clientes...
-            "???"
+            # Crear un diccionario con la información del cliente
+            cliente_info = {
+                "nombre": valores[1],
+                "email": valores[2],
+                "teléfono": valores[3],
+                "descuento": float(valores[4])  # Convertir el descuento a float
+            }
+
+            # Añadir el diccionario del cliente al diccionario directorio_clientes
+            directorio_clientes[nif] = cliente_info
 
     # Mostrar el diccionario resultante
     print(directorio_clientes)
-
 
 if __name__ == "__main__":
     main()
