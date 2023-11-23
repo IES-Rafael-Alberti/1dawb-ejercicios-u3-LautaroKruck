@@ -3,9 +3,8 @@ Escribir un programa que cree un diccionario de traducción español-inglés. El
 """
 from src.borrar_consola import borrar_consola
 
-
 def pedir_palabra_esp():
-    pal_esp = input("Introduce una palabra en español: ")
+    pal_esp = input("Introduce una palabra en español (x para salir): ")
     return pal_esp.lower()
 
 def pedir_palabra_ing():
@@ -16,16 +15,29 @@ def pedir_frase():
     frase = input("Introduce una frase en español: ")
     return frase.lower().split()
 
-def guardar_palabras(traduccion, pal_esp ,pal_ing):
+def guardar_palabras(traduccion, pal_esp, pal_ing):
     traduccion[pal_esp] = pal_ing
     return traduccion
 
+def traducir_frase(traduccion, frase):
+    traduccion_frase = [traduccion.get(palabra, palabra) for palabra in frase]
+    return ' '.join(traduccion_frase)
 
 def main():
     borrar_consola()
-    traduccion = {}
 
+    traduccion = {}
+    pal_esp = pedir_palabra_esp()
+    
+    while pal_esp != "x":
+        pal_ing = pedir_palabra_ing()
+        traduccion = guardar_palabras(traduccion, pal_esp, pal_ing)
+        pal_esp = pedir_palabra_esp()
+
+    frase = pedir_frase()
+    frase_traducida = traducir_frase(traduccion, frase)
+
+    print("Frase traducida:", frase_traducida)
 
 if __name__ == "__main__":
     main()
-
