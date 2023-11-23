@@ -15,10 +15,10 @@ def main():
 
     numeros = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 
-    pares = 
+    pares = {}
     print("Nombres no repetidos => ", pares)
 
-    multiplos_de_tres = 
+    multiplos_de_tres = {}
     print("Nombres que se repiten => ", multiplos_de_tres)
     
     pares_y_multiplos_de_tres = pares & multiplos_de_tres

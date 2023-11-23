@@ -15,19 +15,19 @@ from src.borrar_consola import borrar_consola
 def main():
     borrar_consola()
 
-    frutas1 = {"manzana", "pera", "naranja", "plátano", "uva"}
-    frutas2 = {"manzana", "pera", "durazno", "sandía", "uva"}
+    set_frutas1 = {"manzana", "pera", "naranja", "plátano", "uva"}
+    set_frutas2 = {"manzana", "pera", "durazno", "sandía", "uva"}
 
-    frutas_unicas =  frutas1 | frutas2
+    frutas_unicas =  set_frutas1 | set_frutas2
     print("Nombres no repetidos => ", frutas_unicas)
 
-    frutas_comunes =    frutas1 & frutas2
+    frutas_comunes =    set_frutas1 & set_frutas2
     print("Nombres que se repiten => ", frutas_comunes)
     
-    frutas_solo_en_frutas1 = frutas1 - frutas2
+    frutas_solo_en_frutas1 = set_frutas1 - set_frutas2
     print("Frutas que están en frutas1 pero no en frutas2 => ", frutas_solo_en_frutas1)  
     
-    frutas_solo_en_frutas2 = frutas2 - frutas1
+    frutas_solo_en_frutas2 = set_frutas2 - set_frutas1
     print("Frutas que están en frutas2 pero no en frutas1 => ", frutas_solo_en_frutas2)
 
 
