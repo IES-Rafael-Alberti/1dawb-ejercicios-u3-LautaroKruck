@@ -8,37 +8,40 @@ Mostrar si todos los nombres de primaria están incluidos en secundaria.
 """
 from src.borrar_consola import borrar_consola
 
-def pedir_alumnos_nivel(msj: str) -> set:
-    alumnos_nivel = set()
+def pedir_alumnos(msj: str) -> set:
+    alumnos = set()
     alumno = ""
 
     while alumno.lower() != "x":
         alumno = input(msj).capitalize()
         if alumno.lower() != "x":
-            alumnos_nivel.add(alumno)
+            alumnos.add(alumno)
 
-    return alumnos_nivel
+    return alumnos
 
-def mostrar_alumnos(titulo: str, alumnos: set) -> None:
-    print(titulo)
-    alumnos_str = " - ".join(alumnos)
-    print(alumnos_str)
-    print()
+def mostrar_alumnos(alumnos: set) -> None:
+    lista_alumnos = " - ".join(alumnos)
+    print(lista_alumnos)
+
 
 def main():
     borrar_consola()
 
-    alumnos_primaria = pedir_alumnos_nivel("Introduce el nombre de un alumno de primaria (Para salir introduce 'x'): ")
+    alumnos_primaria = pedir_alumnos("Introduce el nombre de un alumno de primaria (Para salir introduce 'x'): ")
 
-    alumnos_secundaria = pedir_alumnos_nivel("Introduce el nombre de un alumno de secundaria (Para salir introduce 'x'): ")
+    alumnos_secundaria = pedir_alumnos("Introduce el nombre de un alumno de secundaria (Para salir introduce 'x'): ")
 
     mostrar_alumnos("Nombres no repetidos => ", alumnos_primaria | alumnos_secundaria)
+    #   alumnos_primaria.union(alumnos_secundaria) 
 
     mostrar_alumnos("Nombres que se repiten => ", alumnos_primaria & alumnos_secundaria)
+    #   alumnos_primaria.intersection(alumnos_secundaria)
 
     mostrar_alumnos("Nombres de primaria no repetidos en secundaria => ", alumnos_primaria - alumnos_secundaria)
+    #   alumnos_primaria.difference(alumnos_secundaria)
 
-    print("¿Todos los nombres de primaria están incluidos en secundaria? ", alumnos_primaria.issubset(alumnos_secundaria))
+    print("¿Todos los nombres de primaria están incluidos en secundaria? ", alumnos_primaria.issubset(alumnos_secundaria) )
+    #   alumnos_primaria  <=  alumnos_secundaria
 
 if __name__ == "__main__":
     main()

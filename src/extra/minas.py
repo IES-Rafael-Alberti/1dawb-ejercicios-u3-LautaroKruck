@@ -13,40 +13,41 @@ Además, se han utilizado constantes para mejorar la comprensión del código y 
 
 - Desarrollar la función colocar_minas que tiene la siguiente descripción:
 
-  Esta función coloca las minas en el tablero de juego. 
-  Se asegura de que el número de minas colocadas sea igual a NUMERO_MINAS.
+    Esta función coloca las minas en el tablero de juego. 
+    Se asegura de que el número de minas colocadas sea igual a NUMERO_MINAS.
 
 - Actualiza el código de la función contar_minas_adyacentes para que retorne 
 el número total de minas adyacentes que tiene la celda.
 
-  Ejemplo: la celda (3,3) tiene 3 minas en sus celdas adyacentes...
+    Ejemplo: la celda (3,3) tiene 3 minas en sus celdas adyacentes...
 
-  1 2 3 4 5 6 7 8
- 1  1 2 2 1
- 2  1 * * 1 
- 3  1 3 2 2
- 4    1 * 1
- 5    1 1 1
- 6
- 7
- 8
+    1 2 3 4 5 6 7 8
 
-  * Ayuda: Puedes usar 2 bucles para recorrer las celdas adyacentes y acumular las 
-  minas que encuentres. Pero cuidado con comprobar celdas que estén fuera del rango
-  FILAS x COLUMNAS (utiliza las constantes para asegurarte).
+1   1 2 2 1
+2   1 * * 1 
+3   1 3 2 2
+4   1 * 1
+5   1 1 1
+6
+7
+8
+
+* Ayuda: Puedes usar 2 bucles para recorrer las celdas adyacentes y acumular las 
+    minas que encuentres. Pero cuidado con comprobar celdas que estén fuera del rango
+    FILAS x COLUMNAS (utiliza las constantes para asegurarte).
 
 - Consejo 1: depura el programa en la función calcular_numeros porque es 
-  que soluciones un grave pufo que el programador-becario anterior ha dejado.
+    que soluciones un grave pufo que el programador-becario anterior ha dejado.
 
 - Desarrollar el contenido de la función imprimir_tablero. Podéis usar cómo base la
-  función imprimir_tablero_oculto. Analizad dónde se llama a imprimir_tablero y pensad
-  bien qué debe mostrar.
+    función imprimir_tablero_oculto. Analizad dónde se llama a imprimir_tablero y pensad
+    bien qué debe mostrar.
 
 - Consejo 2: Nuestro amigo programador-becario dejó otro gran pufo en pedir_accion y
-  revelar_celda.
+    revelar_celda.
 
 - Consejo 3: La función marcar_celda no funciona cómo debería... 
-  ¿otro regalo de nuestro amigo?
+    ¿otro regalo de nuestro amigo?
 
 - Comprueba por qué no funciona la función jugar()... yo que tú empezaba a depurar.
 

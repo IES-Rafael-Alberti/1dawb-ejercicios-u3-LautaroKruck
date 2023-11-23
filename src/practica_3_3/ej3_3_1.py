@@ -11,6 +11,37 @@ def domicilios_clientes(lista_compras: list) -> set:
     for compra in lista_compras:
         domicilios.add(compra[3])
     return domicilios
+"""
+def mostrar_lista(domicilios: any):
+    for domicilio in domicilios:
+            print(domicilio)
+
+def mostrar_domicilios(domicilios: set, ordenado = False):
+    print("Domicilios: ")
+    
+    if ordenado:
+        lista_domicilios = list(domicilios)
+        lista_domicilios.sort()
+    else:
+        for domicilio in lista_domicilios:
+            print(domicilio)
+
+
+"""
+
+def mostrar_domicilios(domicilios: set, ordenado = False):
+    print("Domicilios: ")
+    
+    if ordenado:
+        lista_domicilios = list(domicilios)
+        lista_domicilios.sort()
+
+        for domicilio in lista_domicilios:
+            print(domicilio)
+
+    else:
+        for domicilio in domicilios:
+            print(domicilio)
 
 def main():
     lista_compras = [
@@ -22,10 +53,7 @@ def main():
     ]
 
     domicilios = domicilios_clientes(lista_compras)
-
-    print("Domicilios para enviar facturas de compra:")
-    for domicilio in domicilios:
-        print(domicilio)
+    mostrar_domicilios(domicilios)
 
 if __name__ == "__main__":
     main()
