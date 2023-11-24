@@ -25,7 +25,7 @@ el número total de minas adyacentes que tiene la celda.
 
 1   1 2 2 1
 2   1 * * 1 
-3   1 3 2 2
+3   1 3 3 2
 4   1 * 1
 5   1 1 1
 6
@@ -36,7 +36,7 @@ el número total de minas adyacentes que tiene la celda.
     minas que encuentres. Pero cuidado con comprobar celdas que estén fuera del rango
     FILAS x COLUMNAS (utiliza las constantes para asegurarte).
 
-- Consejo 1: depura el programa en la función calcular_numeros porque es 
+- Consejo 1: depura el programa en la función calcular_numeros porque puede 
     que soluciones un grave pufo que el programador-becario anterior ha dejado.
 
 - Desarrollar el contenido de la función imprimir_tablero. Podéis usar cómo base la
@@ -77,16 +77,25 @@ def generar_tablero() -> list:
     :return: tablero de juego
     """
     tablero = [[VACIO for _ in range(COLUMNAS)] for _ in range(FILAS)]
+
+
     #TODO: colocar las minas en el tablero
-    "???"
+    colocar_minas(tablero)
     calcular_numeros(tablero)
     return tablero
 
 
-def colocar_minas():
+def colocar_minas(tablero):
     """
     Esta función coloca las minas en el tablero de juego. Se asegura de que el número de minas colocadas sea igual a NUMERO_MINAS.
     """
+    cont = 1
+    while cont <= NUMERO_MINAS:
+        fila = random.randint(0,FILAS - 1)
+        columna = random.randint(0,COLUMNAS - 1)
+        if tablero[fila][columna] != MINA:
+            tablero[fila][columna] = MINA
+            cont += 1
 
 
 
@@ -112,7 +121,9 @@ def contar_minas_adyacentes(tablero, fila, columna):
     :return: número de minas adyacentes a la celda(i,j) seleccionada
     """
     minas = 0
-    "???"
+    for i in range(fila-1, fila+2):
+        for j in range(columna-1, columna+2):
+
     return minas
 
 
@@ -210,7 +221,7 @@ def revelar_celdas_vacias(tablero, celdas_reveladas, celdas_marcadas, fila, colu
                         revelar_celdas_vacias(tablero, celdas_reveladas, celdas_marcadas, fila + i, columna + j)
 
 
-def marcar_celda(celdas_marcadas, fila, columna):
+def marcar_celda(tablero, celdas_marcadas, fila, columna):
     """
     Esta función marca la celda seleccionada con una bandera.
     :param tablero: tablero de juego
@@ -218,8 +229,9 @@ def marcar_celda(celdas_marcadas, fila, columna):
     :param fila: fila de la celda seleccionada
     :param columna: columna de la celda seleccionada
     """
-    if (columna, fila) in celdas_marcadas:
-        celdas_marcadas.add((columna, fila))
+    if (fila, columna) in celdas_marcadas:
+        celdas_marcadas.add((fila, columna))
+        tablero[fila][columna] = BANDERA
 
 
 def verificar_victoria(tablero, celdas_reveladas) -> bool:
@@ -252,7 +264,7 @@ def jugar():
 
         imprimir_tablero_oculto(tablero, celdas_reveladas, celdas_marcadas)
 
-        pedir_accion()
+        accion = pedir_accion()
 
         if accion == REVELAR:
             celda_con_mina = not revelar_celda(tablero, celdas_reveladas, celdas_marcadas, fila, columna)
