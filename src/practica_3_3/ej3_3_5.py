@@ -15,14 +15,14 @@ def main():
 
     numeros = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 
-    pares = {}
-    print("Nombres no repetidos => ", pares)
+    pares = {num for num in numeros if num % 2 == 0}
+    print("Números pares    => ", pares)
 
-    multiplos_de_tres = {}
-    print("Nombres que se repiten => ", multiplos_de_tres)
+    multiplos_de_tres = {num for num in numeros if num % 3 == 0}
+    print("Números que son multiplos de tres    => ", multiplos_de_tres)
     
     pares_y_multiplos_de_tres = pares & multiplos_de_tres
-    print("Frutas que están en frutas1 pero no en frutas2 => ", pares_y_multiplos_de_tres)  
+    print("Intersección entre los pares y multiplos de tres     => ", pares_y_multiplos_de_tres)  
 
 
 if __name__ == "__main__":
