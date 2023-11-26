@@ -19,7 +19,6 @@ def main():
 
     creditos_asigs = {'Matemáticas': 6, 'Física': 4, 'Química': 5}
 
-    print()
     total_creditos = cred_asigs(creditos_asigs)
 
     mostrar_total(total_creditos)

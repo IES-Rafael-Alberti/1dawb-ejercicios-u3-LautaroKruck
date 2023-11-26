@@ -78,7 +78,6 @@ def generar_tablero() -> list:
     """
     tablero = [[VACIO for _ in range(COLUMNAS)] for _ in range(FILAS)]
 
-
     #TODO: colocar las minas en el tablero
     colocar_minas(tablero)
     calcular_numeros(tablero)
@@ -123,6 +122,8 @@ def contar_minas_adyacentes(tablero, fila, columna):
     minas = 0
     for i in range(fila-1, fila+2):
         for j in range(columna-1, columna+2):
+            if tablero[fila][columna] == MINA:
+                minas += 1
 
     return minas
 
